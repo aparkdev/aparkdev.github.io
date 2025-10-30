@@ -14,7 +14,7 @@ export const products: Product[] = [
     name: "Sunflower Delight",
     description: "Bright and cheerful sunflower balloon arrangement",
     price: 39.99,
-    image: "https://images.unsplash.com/photo-1597075933405-bb7fa6c94c0c?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1558818498-28c1e002b655?w=500&h=500&fit=crop",
     category: "Cheerful"
   },
   {
