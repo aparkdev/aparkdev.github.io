@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
   base: '/petal-grid-store/',
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./petal-grid-store/src"),
+      "@": path.resolve(__dirname, "/petal-grid-store/src"),
     },
   },
 }));
