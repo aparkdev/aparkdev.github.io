@@ -15,7 +15,7 @@ export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
           <div className="text-3xl">🌸</div>
           <div>
             <h1 className="text-xl font-bold text-primary">GBG Studio</h1>
-            <p className="text-xs text-muted-foreground">Flower-inspired celebrations</p>
+            <p className="text-xs text-muted-foreground">Gifts By Gloria Studio</p>
           </div>
         </div>
         <Button
