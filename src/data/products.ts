@@ -3,11 +3,11 @@ import { Product } from "@/types/product";
 export const products: Product[] = [
   {
     id: "1",
-    name: "Rose Romance Balloon",
-    description: "Elegant red rose balloon bouquet perfect for romantic occasions",
+    name: "Anniversary Balloon",
+    description: "Elegant anniversary balloon bouquet perfect for loved ones",
     price: 45.99,
-    image: "https://images.unsplash.com/photo-1518895312237-a9e23508077d?w=500&h=500&fit=crop",
-    category: "Romance"
+    image: "https://i.imgur.com/N7Sws63.jpeg",
+    category: "Anniversary"
   },
   {
     id: "2",
