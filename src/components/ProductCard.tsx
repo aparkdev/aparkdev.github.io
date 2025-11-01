@@ -21,7 +21,7 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
       <div className="p-4 space-y-3">
         <div>
           <h3 className="font-semibold text-lg text-foreground">{product.name}</h3>
-          <p className="text-sm text-muted-foreground mt-1">{product.description}</p>
+          <p className="hidden md:block text-sm text-muted-foreground mt-1">{product.description}</p>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-primary">${product.price.toFixed(2)}</span>
