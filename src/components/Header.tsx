@@ -1,4 +1,4 @@
-import { ShoppingCart, Menu, ChevronRight } from "lucide-react";
+import { ShoppingCart, Menu, ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -11,38 +11,68 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   cartItemCount: number;
   onCartClick: () => void;
+  currentCategory?: string;
+  currentSubcategory?: string;
 }
 
 const menuItems = [
   {
+    title: "Shop All",
+    slug: "shop-all",
+    items: [],
+  },
+  {
     title: "Occasions",
+    slug: "occasions",
     items: [
-      "Anniversary",
-      "Birthday",
-      "Valentine's Day",
-      "Mother's Day",
-      "Teacher's Day",
-      "Graduation",
-      "Christmas",
+      { name: "Anniversary", slug: "anniversary" },
+      { name: "Birthday", slug: "birthday" },
+      { name: "Valentine's Day", slug: "valentines-day" },
+      { name: "Mother's Day", slug: "mothers-day" },
+      { name: "Teacher's Day", slug: "teachers-day" },
+      { name: "Graduation", slug: "graduation" },
+      { name: "Christmas", slug: "christmas" },
     ],
   },
   {
     title: "Flower Balloon",
-    items: ["Helium"],
+    slug: "flower-balloon",
+    items: [{ name: "Helium", slug: "helium" }],
   },
   {
-    title: "Magic Balloons / Character Balloons",
-    items: [],
+    title: "Magic Balloons",
+    slug: "magic-balloons",
+    items: [{ name: "Character Balloons", slug: "character-balloons" }],
   },
 ];
 
-export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
+export const Header = ({ cartItemCount, onCartClick, currentCategory, currentSubcategory }: HeaderProps) => {
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMenuClick = (categorySlug: string, subcategorySlug?: string) => {
+    if (subcategorySlug) {
+      navigate(`/category/${categorySlug}/${subcategorySlug}`);
+    } else if (categorySlug === "shop-all") {
+      navigate("/");
+    } else {
+      navigate(`/category/${categorySlug}`);
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const isActive = (categorySlug: string, subcategorySlug?: string) => {
+    if (subcategorySlug) {
+      return currentCategory === categorySlug && currentSubcategory === subcategorySlug;
+    }
+    return currentCategory === categorySlug && !currentSubcategory;
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -65,7 +95,12 @@ export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
                     <nav className="flex-1 overflow-y-auto">
                       {menuItems.map((menu) => (
                         <div key={menu.title} className="border-b border-border">
-                          <button className="flex w-full items-center justify-between p-4 text-left hover:bg-accent">
+                          <button 
+                            onClick={() => menu.items.length === 0 && handleMenuClick(menu.slug)}
+                            className={`flex w-full items-center justify-between p-4 text-left hover:bg-accent ${
+                              isActive(menu.slug) ? "bg-accent text-primary font-semibold" : ""
+                            }`}
+                          >
                             <span className="font-medium">{menu.title}</span>
                             {menu.items.length > 0 && <ChevronRight className="h-4 w-4" />}
                           </button>
@@ -73,10 +108,13 @@ export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
                             <div className="bg-muted/30 px-4 pb-2">
                               {menu.items.map((item) => (
                                 <button
-                                  key={item}
-                                  className="block w-full py-2 text-left text-sm hover:text-primary"
+                                  key={item.slug}
+                                  onClick={() => handleMenuClick(menu.slug, item.slug)}
+                                  className={`block w-full py-2 text-left text-sm hover:text-primary ${
+                                    isActive(menu.slug, item.slug) ? "text-primary font-semibold" : ""
+                                  }`}
                                 >
-                                  {item}
+                                  {item.name}
                                 </button>
                               ))}
                             </div>
@@ -88,13 +126,13 @@ export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
                 </SheetContent>
               </Sheet>
             )}
-            <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <div className="text-3xl">🌸</div>
               <div>
                 <h1 className="text-xl font-bold text-primary">GBG Studio</h1>
                 <p className="text-xs text-muted-foreground">Gifts By Gloria Studio</p>
               </div>
-            </div>
+            </Link>
           </div>
           <Button
             variant="outline"
@@ -116,30 +154,48 @@ export const Header = ({ cartItemCount, onCartClick }: HeaderProps) => {
 
         {!isMobile && (
           <div className="border-t border-border">
-            <NavigationMenu className="mx-auto max-w-full">
-              <NavigationMenuList className="flex-wrap justify-start gap-2">
+            <NavigationMenu className="mx-auto max-w-full justify-center">
+              <NavigationMenuList className="flex-wrap justify-center gap-0">
                 {menuItems.map((menu) => (
                   <NavigationMenuItem key={menu.title}>
                     {menu.items.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger className="h-auto py-3 text-sm font-medium">
+                        <NavigationMenuTrigger 
+                          className={`h-auto py-3 px-6 text-sm font-medium rounded-none border-b-2 ${
+                            isActive(menu.slug) 
+                              ? "border-primary text-primary bg-accent/50" 
+                              : "border-transparent"
+                          }`}
+                        >
                           {menu.title}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <div className="grid w-[400px] gap-3 p-4 bg-popover">
+                          <div className="grid w-[400px] gap-0 bg-popover border-t-0 shadow-lg">
                             {menu.items.map((item) => (
                               <button
-                                key={item}
-                                className="block rounded-md p-3 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                                key={item.slug}
+                                onClick={() => handleMenuClick(menu.slug, item.slug)}
+                                className={`block p-4 text-left text-sm transition-colors hover:bg-accent border-b border-border last:border-b-0 ${
+                                  isActive(menu.slug, item.slug) 
+                                    ? "bg-accent text-primary font-semibold" 
+                                    : ""
+                                }`}
                               >
-                                {item}
+                                {item.name}
                               </button>
                             ))}
                           </div>
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <button className="inline-flex h-auto items-center justify-center rounded-md bg-background px-4 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
+                      <button 
+                        onClick={() => handleMenuClick(menu.slug)}
+                        className={`inline-flex h-auto items-center justify-center rounded-none bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent border-b-2 ${
+                          isActive(menu.slug) 
+                            ? "border-primary text-primary bg-accent/50" 
+                            : "border-transparent"
+                        }`}
+                      >
                         {menu.title}
                       </button>
                     )}
