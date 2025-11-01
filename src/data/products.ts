@@ -14,7 +14,7 @@ export const products: Product[] = [
     name: "Sunflower Delight",
     description: "Bright and cheerful sunflower balloon arrangement",
     price: 39.99,
-    image: "https://images.unsplash.com/photo-1558818498-28c1e002b655?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/IWpD2i9.jpeg",
     category: "Cheerful"
   },
   {
@@ -22,7 +22,7 @@ export const products: Product[] = [
     name: "Lavender Dreams",
     description: "Soft purple lavender balloon set with delicate charm",
     price: 42.99,
-    image: "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/qTDdw2W.jpeg",
     category: "Elegant"
   },
   {
@@ -30,7 +30,7 @@ export const products: Product[] = [
     name: "Tulip Paradise",
     description: "Colorful tulip balloon bouquet for spring celebrations",
     price: 44.99,
-    image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/0BOdKF1.jpeg",
     category: "Spring"
   },
   {
@@ -38,7 +38,7 @@ export const products: Product[] = [
     name: "Daisy Joy",
     description: "White daisy balloon arrangement spreading happiness",
     price: 37.99,
-    image: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/qg1g1yr.jpeg",
     category: "Joy"
   },
   {
@@ -46,7 +46,7 @@ export const products: Product[] = [
     name: "Orchid Elegance",
     description: "Sophisticated orchid balloon display for special moments",
     price: 49.99,
-    image: "https://images.unsplash.com/photo-1506976773555-b3da30a63b57?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/00xxJnh.jpeg",
     category: "Luxury"
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
     name: "Peony Perfection",
     description: "Lush pink peony balloon set for celebrations",
     price: 46.99,
-    image: "https://images.unsplash.com/photo-1470058869958-2a77ade41c02?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/8fyNbMQ.jpeg",
     category: "Celebration"
   },
   {
@@ -62,7 +62,7 @@ export const products: Product[] = [
     name: "Wildflower Mix",
     description: "Mixed wildflower balloon bouquet with natural beauty",
     price: 41.99,
-    image: "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/EiaCZp9.jpeg",
     category: "Natural"
   },
   {
@@ -70,7 +70,103 @@ export const products: Product[] = [
     name: "Cherry Blossom",
     description: "Delicate cherry blossom balloon arrangement",
     price: 48.99,
-    image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500&h=500&fit=crop",
+    image: "https://i.imgur.com/Y2oO0aB.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "10",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/bcueeIi.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "11",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/mrlMmiy.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "12",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/UzkwLP8.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "13",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/g6TqDMV.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "14",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/KyBHsNf.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "15",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/aGvLJZX.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "16",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/iGf3Vc6.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "17",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/PZqgVde.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "18",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/Ysjq3Rc.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "19",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/cBdLvgb.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "20",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/XmLSAcK.jpeg",
+    category: "Delicate"
+  },
+  {
+    id: "21",
+    name: "Cherry Blossom",
+    description: "Delicate cherry blossom balloon arrangement",
+    price: 48.99,
+    image: "https://i.imgur.com/1SKkiEo.jpeg",
     category: "Delicate"
   }
 ];
